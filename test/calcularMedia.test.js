@@ -1,27 +1,32 @@
 const { calcularMedia } = require("../scr/calcularMedia");
 
-describe("calcularMedia", () => {
-  it("deve calcular a média corretamente para notas válidas", () => {
-    expect(calcularMedia(7, 8)).toBe(7.5);
+describe("Teste de cálculo de média", () => {
+  test("Notas válidas de 1UP e 2UP", () => {
+    expect(calcularMedia(7.0, 8.0)).toBe(7.5);
   });
 
-  it("deve calcular a média corretamente para notas iguais", () => {
-    expect(calcularMedia(5, 5)).toBe(5);
+  test("Notas iguais de 1UP e 2UP", () => {
+    expect(calcularMedia(5.0, 5.0)).toBe(5.0);
   });
 
-  it("deve calcular a média corretamente para nota mínima e máxima", () => {
-    expect(calcularMedia(0, 10)).toBe(5);
+  test("Nota mínima e máxima (0.0 e 10.0)", () => {
+    expect(calcularMedia(0.0, 10.0)).toBe(5.0);
   });
 
-  it("deve calcular a média corretamente para nota de 1UP no limite inferior", () => {
-    expect(calcularMedia(0, 7)).toBe(3.5);
+  test("Nota de 1UP no limite inferior e nota de 2UP no limite superior", () => {
+    expect(calcularMedia(0.0, 7.0)).toBe(3.5);
   });
 
-  it("deve calcular a média corretamente para nota de 2UP no limite superior", () => {
-    expect(calcularMedia(8, 10)).toBe(9);
+  test("Nota de 1UP no limite inferior e nota de 2UP no limite superior", () => {
+    expect(calcularMedia(8.0, 10.0)).toBe(9.0);
   });
 
-  it("deve retornar erro para notas inválidas", () => {
-    expect(calcularMedia(-1, 11)).toThrow("Erro de validação");
+  test("Notas inválidas fora do intervalo", () => {
+    const nota1 = -1.0;
+    const nota2 = 11.0;
+
+    expect(() => calcularMedia(nota1, nota2)).toThrowError(
+      "A média deve ser um número entre 0.0 e 10.0."
+    );
   });
 });
