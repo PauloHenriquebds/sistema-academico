@@ -1,27 +1,27 @@
-const { definirStatus } = require("../scr/exibirStatus");
+const { obterStatus } = require("../scr/exibirStatus");
 
-describe("definirStatus", () => {
-  it('deve retornar "Reprovado por média" para média inferior a 4', () => {
-    expect(definirStatus(3.5)).toBe("Reprovado por média");
+describe("Testes para obterStatus com base na média do aluno", () => {
+  test('Deve retornar "Reprovado por média" para média inferior a 4.0', () => {
+    expect(obterStatus(3.5)).toBe("Reprovado por média");
   });
 
-  it('deve retornar "Aguardando a final" para média igual a 4', () => {
-    expect(definirStatus(4)).toBe("Aguardando a final");
+  test('Deve retornar "Aguardando a final" para média igual a 4.0', () => {
+    expect(obterStatus(4.0)).toBe("Aguardando a final");
   });
 
-  it('deve retornar "Aguardando a final" para média igual a 4 e 6', () => {
-    expect(definirStatus(5.5)).toBe("Aguardando a final");
+  test('Deve retornar "Aguardando a final" para média entre 4.0 e 6.0', () => {
+    expect(obterStatus(5.5)).toBe("Aguardando a final");
   });
 
-  it('deve retornar "Aprovado por média" para média igual a 6', () => {
-    expect(definirStatus(6)).toBe("Aprovado por média");
+  test('Deve retornar "Aprovado por média" para média igual a 6.0', () => {
+    expect(obterStatus(6.0)).toBe("Aprovado por média");
   });
 
-  it('deve retornar "Aprovado por média" para média superior a 6', () => {
-    expect(definirStatus(7.5)).toBe("Aprovado por média");
+  test('Deve retornar "Aprovado por média" para média superior a 6.0', () => {
+    expect(obterStatus(7.5)).toBe("Aprovado por média");
   });
 
-  it('deve retornar "Reprovado por média" para média no limite inferior (0)', () => {
-    expect(definirStatus(0)).toBe("Reprovado por média");
+  test('Deve retornar "Reprovado por média" para média no limite inferior (0.0)', () => {
+    expect(obterStatus(0.0)).toBe("Reprovado por média");
   });
 });
