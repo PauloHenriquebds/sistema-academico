@@ -63,4 +63,4 @@ Tests: 18 passed, 18 total
 
 -- Paulo Henrique (https://github.com/PauloHenriquebds)
 -- Artur Ribeiro (https://github.com/ArturRib)
--- Tamires Silva ()
+-- Tamires Silva (https://github.com/Miires)
